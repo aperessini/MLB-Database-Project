@@ -56,6 +56,9 @@ app.get('/',function(req,res,next){
                 next(err);
                 return;
                 }
+		rows.forEach(function(row){
+		    row.batting_average = row.batting_average.toFixed(3);
+		});
                 context.hittingstats = rows;
                 //console.log(context.hittingstats);
                 //res.render('homeMLB', context);
@@ -66,6 +69,10 @@ app.get('/',function(req,res,next){
                     next(err);
                     return;
                     }
+		    rows.forEach(function(row){
+                        row.opp_batting_average = row.opp_batting_average.toFixed(3);
+			row.earned_run_average = row.earned_run_average.toFixed(2);
+		    });
                     context.pitchingstats = rows;
                     //console.log(context.hittingstats);
                     //res.render('homeMLB', context);
