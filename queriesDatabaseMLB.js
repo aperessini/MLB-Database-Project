@@ -21,49 +21,49 @@ var server = app.listen(port, function() {
 
 mysql.pool.query("CREATE TABLE IF NOT EXISTS `location` (`location_id` int(11) NOT NULL AUTO_INCREMENT, `city` varchar(255) NOT NULL, `state` varchar(255), `country` varchar(255) NOT NULL, PRIMARY KEY(`location_id`), UNIQUE KEY(`city`, `state`, `country`));", function(err, rows, fields){
   if(err){
-    next(err);
+    console.log(err);
     return;
   }
 });
 
 mysql.pool.query("CREATE TABLE IF NOT EXISTS `team` (`team_id` int(11) NOT NULL AUTO_INCREMENT, `team_name` varchar(255) NOT NULL, `stadium_name` varchar(255) NOT NULL, `league` varchar(255) NOT NULL, `division` varchar(255) NOT NULL, `wins` int(11) NOT NULL, `losses` int(11) NOT NULL, `mascot` varchar(255), `team_location_id` int(11) NOT NULL, PRIMARY KEY(`team_id`), CONSTRAINT `team_ibfk_1` FOREIGN KEY(`team_location_id`) REFERENCES `location` (`location_id`), UNIQUE KEY(`team_name`));", function(err, rows, fields){
   if(err){
-    next(err);
+    console.log(err);
     return;
   }
 });
 
 mysql.pool.query("CREATE TABLE IF NOT EXISTS `player` (`player_id` int(11) NOT NULL AUTO_INCREMENT, `first_name` varchar(255) NOT NULL, `last_name` varchar(255) NOT NULL, `dob` date NOT NULL, `position` varchar(255) NOT NULL, `uni_num` int(11) NOT NULL, `bats` varchar(255) NOT NULL, `throws` varchar(255) NOT NULL, `team_id` int(11), `hometown_id` int(11), PRIMARY KEY(`player_id`), CONSTRAINT `player_ibfk_1` FOREIGN KEY(`team_id`) REFERENCES `team` (`team_id`), CONSTRAINT `team_ibfk_2` FOREIGN KEY(`hometown_id`) REFERENCES `location` (`location_id`));", function(err, rows, fields){
   if(err){
-    next(err);
+    console.log(err);
     return;
   }
 });
 
 mysql.pool.query("CREATE TABLE IF NOT EXISTS `hitting_stats` (`h_stats_id` int(11) NOT NULL AUTO_INCREMENT, `player_id` int(11) NOT NULL, `hits` int(11) NOT NULL, `batting_average` decimal(4,3) NOT NULL, `runs_scored` int(11) NOT NULL, `runs_batted_in` int(11) NOT NULL, `home_runs` int(11) NOT NULL, `walks` int(11) NOT NULL, `strikeouts` int(11), PRIMARY KEY(`h_stats_id`), CONSTRAINT `hitting_stats_ibfk_1` FOREIGN KEY(`player_id`) REFERENCES `player` (`player_id`), UNIQUE KEY(`player_id`));", function(err, rows, fields){
   if(err){
-    next(err);
+    console.log(err);
     return;
   }
 });
 
 mysql.pool.query("CREATE TABLE IF NOT EXISTS `pitching_stats` (`p_stats_id` int(11) NOT NULL AUTO_INCREMENT, `player_id` int(11) NOT NULL, `earned_run_average` decimal(4,2) NOT NULL, `opp_batting_average` decimal(4,3) NOT NULL, `wins` int(11) NOT NULL, `losses` int(11) NOT NULL, `walks` int(11) NOT NULL, `strikeouts` int(11), PRIMARY KEY(`p_stats_id`), CONSTRAINT `pitching_stats_ibfk_1` FOREIGN KEY(`player_id`) REFERENCES `player` (`player_id`), UNIQUE KEY(`player_id`));", function(err, rows, fields){
   if(err){
-    next(err);
+    console.log(err);
     return;
   }
 });
 
 mysql.pool.query("CREATE TABLE IF NOT EXISTS `award` (`award_id` int(11) NOT NULL AUTO_INCREMENT, `award_name` varchar(255) NOT NULL, PRIMARY KEY(`award_id`), UNIQUE KEY(`award_name`));", function(err, rows, fields){
   if(err){
-    next(err);
+    console.log(err);
     return;
   }
 });
 
 mysql.pool.query("CREATE TABLE IF NOT EXISTS `player_awards` (`award_id` int(11) NOT NULL, `player_id` int(11) NOT NULL, `year` int(11) NOT NULL, `league` varchar(255) NOT NULL, CONSTRAINT `player_awards_ibfk_1` FOREIGN KEY(`award_id`) REFERENCES `award` (`award_id`), CONSTRAINT `player_awards_ibfk_2` FOREIGN KEY(`player_id`) REFERENCES `player` (`player_id`), UNIQUE KEY(`award_id`, `player_id`, `year`, `league`));", function(err, rows, fields){
   if(err){
-    next(err);
+    console.log(err);
     return;
   }
 });
