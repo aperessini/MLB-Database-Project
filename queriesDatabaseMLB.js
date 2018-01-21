@@ -14,6 +14,10 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 //app.set('port', 5100);
 app.use(express.static('jsfiles'));
+var port = Number(process.env.PORT || 8000);
+var server = app.listen(port, function() {
+        console.log('Listening on port ' + server.address().port);
+});
 
 app.get('/',function(req,res,next){
   var context = {};
