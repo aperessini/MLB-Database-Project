@@ -18,10 +18,15 @@ app.use(express.static('jsfiles'));
 app.get('/',function(req,res,next){
   var context = {};
 
-  mysql.pool.query('SELECT city, state, country FROM location', function(err, rows, fields){
-    if(err){
-      next(err);
-      return;
+  mysql.pool.query("CREATE TABLE IF NOT EXISTS `location` (`location_id` int(11) NOT NULL AUTO_INCREMENT, `city` varchar(255) NOT NULL, `state` varchar(255), `country` varchar(255) NOT NULL, PRIMARY KEY(`location_id`), UNIQUE KEY(`city`, `state`, `country`))ENGINE=InnoDB;", function(err, rows, fields){
+  if(err){
+    next(err);
+    return;
+
+    mysql.pool.query('SELECT city, state, country FROM location', function(err, rows, fields){
+      if(err){
+        next(err);
+        return;
     }
     context.locations = rows;
     //console.log(context.locations);

@@ -4,7 +4,8 @@
   "description": "Database app to add and update MLB entitiy information",
   "main": "queriesDatabaseMLB.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node queriesDatabaseMLB.js"
   },
   "repository": {
     "type": "git",
