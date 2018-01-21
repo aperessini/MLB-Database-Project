@@ -12,7 +12,7 @@ app.use(bodyParser.json())
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
-app.set('port', 5100);
+//app.set('port', 5100);
 app.use(express.static('jsfiles'));
 
 app.get('/',function(req,res,next){

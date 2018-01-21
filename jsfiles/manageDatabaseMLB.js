@@ -72,7 +72,7 @@ for(var x = 0; x < legends.length; x++)
 function bindButtons(){
 
         document.getElementById('add_location_submit').addEventListener('click', function(event){
-          
+	var hostname = "http://mlb-database-peressini.herokuapp.com";          
           var req = new XMLHttpRequest();
           var city = document.getElementById('add_location_city').value;
           if(city == "")
@@ -164,7 +164,7 @@ function bindButtons(){
           //alert(params);
           //alert(order_by);
           
-          req.open('GET', "http://flip1.engr.oregonstate.edu:5100/?teams_order_by=" + order_by, true);
+          req.open('GET', hostname + "/?teams_order_by=" + order_by, true);
           req.setRequestHeader('Content-Type', 'application/json');
           req.addEventListener("load", function(){
           if(req.status >= 200 && req.status < 400)

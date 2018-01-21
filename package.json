@@ -1,0 +1,27 @@
+{
+  "name": "mlb-database",
+  "version": "1.0.0",
+  "description": "Database app to add and update MLB entitiy information",
+  "main": "queriesDatabaseMLB.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aperessini/MLB-Database-Project.git"
+  },
+  "author": "Aaron Peressini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aperessini/MLB-Database-Project/issues"
+  },
+  "homepage": "https://github.com/aperessini/MLB-Database-Project#readme",
+  "dependencies": {
+    "async": "^2.6.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.11",
+    "mysql": "^2.15.0"
+  }
+}
