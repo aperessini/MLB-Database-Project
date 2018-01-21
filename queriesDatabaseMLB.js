@@ -117,6 +117,7 @@ app.get('/',function(req,res,next){
       });
    }); 
 });
+});
 
 app.post('/insert-location',function(req,res,next){
   var context = {};
