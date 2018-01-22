@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', bindButtons);
 
 document.getElementById('body').style.fontFamily = 'Arial';
+document.getElementById('body').style.backgroundColor = 'silver';
 var h1 = document.getElementsByTagName('h1');
 var h2 = document.getElementsByTagName('h2');
 var tables = document.getElementsByTagName('table');
@@ -13,7 +14,7 @@ var fieldsets = document.getElementsByTagName('fieldset');
 var legends = document.getElementsByTagName('legend');
 
 
-h1[0].style.color = 'royalblue';
+h1[0].style.color = '#0C2C56';
 
 for(var x = 0; x < h2.length; x++)
 {
@@ -26,7 +27,7 @@ for(var x = 0; x < h2.length; x++)
 
 for(var x = 0; x < tables.length; x++)
 {
-    tables[x].style.border = 'medium solid teal';
+    tables[x].style.border = 'medium solid #005C5C';
     tables[x].style.textAlign = 'left';
     //tables[x].style.margin = '0 auto';
     //tables[x].style.width = '50%';
