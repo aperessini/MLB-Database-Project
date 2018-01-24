@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', bindButtons);
 
 document.getElementById('body').style.fontFamily = 'Arial';
-document.getElementById('body').style.backgroundColor = 'silver';
+document.getElementById('body').style.backgroundColor = '#e0eaf9';
 var h1 = document.getElementsByTagName('h1');
 var h2 = document.getElementsByTagName('h2');
 var tables = document.getElementsByTagName('table');
